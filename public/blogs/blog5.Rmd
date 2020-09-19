@@ -203,14 +203,16 @@ Now, we can see that the audience is particularly fond of watching biographies, 
 
 ``` {r ratings_genre_plot}
   #Plot a histogram using movies dataframe, x axis shows rating
-  ggplot(data = movies, mapping = aes(x = rating) ) +
+ dist_movies <-  ggplot(data = movies, mapping = aes(x = rating) ) +
   #Choose white for color of bin lines
       geom_histogram(color="white") +
   #Add title for the plot and x and y axis
       labs(title="Distribution of ratings", x="Rating", y="Number of movies") +
   #Choose the theme minimal for the plot styling
       theme_minimal() 
+dist_movies
 
+dist_movies + facet_wrap(~genre) 
 ```
 
 This histogram clearly shows that most movies tend to obtain IMDB ratings between 5 and 7.5. 
@@ -244,10 +246,11 @@ ggplot(data = movies, aes(x=cast_facebook_likes/1000, y=gross/1000000)) +
   scale_y_log10() + 
   scale_x_log10() +
   # Finally we will label our plot again
-  labs(title = "box office earnings on number of facebook likes",
-       subtitle = "logarithmic scales",
+  labs(title = "Suggestion for producers: Find a way to increase your likes on Facebook",
+       subtitle = "Box office earnings on number of facebook likes logarithmic scales",
        x = "Number of facebook likes(k)",
-       y = "Gross earning(m USD)")
+       y = "Gross earning(m USD)") +
+  theme_minimal()
 ```
 
 From this plot, we can actually see that there exists a correlation between the gross earnings and the Number of Facebook Likes! So this means that while producing a movie, we should definitely consider allocating some budget to marketing the movie on Facebook through the best possible way! 
@@ -262,7 +265,7 @@ ggplot(data = movies, mapping = aes(x=gross/1000000, y=budget/1000000)) +
 #We will draw a line of best fit to better understand the trend
       geom_smooth() +
 #We will add titles
-      labs(title="Relationship between gross revenue and budget of a movie", x="Gross revenue(m USD)", y="Budget(m USD)") +
+      labs(title= "Do movies with high budget make more money?", subtitle= "Relationship between gross revenue and budget of a movie", x="Gross revenue(m USD)", y="Budget(m USD)") +
 #Choose theme minimal for plot syling
       theme_minimal()       
 
@@ -282,7 +285,8 @@ ggplot(data = movies, mapping = aes(x=rating, y=gross/1000000)) +
       #Adding a fitting line using the geom_smooth function
       geom_smooth() +
       #Add title for plot and axis
-      labs(title="Relationship between gross revenue and rating by genre", x="Rating", y="Gross revenue(m USD)") 
+      labs(title= "Does a high rating make a movie more profitable?", subtitle= "Relationship between revenue and ratings per genre", x="Rating", y="Gross revenue(m USD)") +
+      theme_minimal()
 
 ```
 

@@ -1876,14 +1876,17 @@ NA
 </table>
 <p>Now, we can see that the audience is particularly fond of watching biographies, crime, mystery, and drama movies.</p>
 <pre class="r"><code>  #Plot a histogram using movies dataframe, x axis shows rating
-  ggplot(data = movies, mapping = aes(x = rating) ) +
+ dist_movies &lt;-  ggplot(data = movies, mapping = aes(x = rating) ) +
   #Choose white for color of bin lines
       geom_histogram(color=&quot;white&quot;) +
   #Add title for the plot and x and y axis
       labs(title=&quot;Distribution of ratings&quot;, x=&quot;Rating&quot;, y=&quot;Number of movies&quot;) +
   #Choose the theme minimal for the plot styling
-      theme_minimal() </code></pre>
+      theme_minimal() 
+dist_movies</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/ratings_genre_plot-1.png" width="648" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>dist_movies + facet_wrap(~genre) </code></pre>
+<p><img src="/blogs/blog5_files/figure-html/ratings_genre_plot-2.png" width="648" style="display: block; margin: auto;" /></p>
 <p>This histogram clearly shows that most movies tend to obtain IMDB ratings between 5 and 7.5.</p>
 <p>Now, I will examine the relationships between some variables for the next few analysis. Firstly, I will produce a scatter plot to see whether the number of facebook likes that the cast has received is likely to be a good predictor of how much money a movie will make at the box office.</p>
 <pre class="r"><code>#We will plot a scatterplot with movies data, we will map the number of facebook likes that the cast received in thousands on the x axis and gross earnings in millions on the y axis.
@@ -1905,10 +1908,11 @@ ggplot(data = movies, aes(x=cast_facebook_likes/1000, y=gross/1000000)) +
   scale_y_log10() + 
   scale_x_log10() +
   # Finally we will label our plot again
-  labs(title = &quot;box office earnings on number of facebook likes&quot;,
-       subtitle = &quot;logarithmic scales&quot;,
+  labs(title = &quot;Suggestion for producers: Find a way to increase your likes on Facebook&quot;,
+       subtitle = &quot;Box office earnings on number of facebook likes logarithmic scales&quot;,
        x = &quot;Number of facebook likes(k)&quot;,
-       y = &quot;Gross earning(m USD)&quot;)</code></pre>
+       y = &quot;Gross earning(m USD)&quot;) +
+  theme_minimal()</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_on_ggplot2-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>From this plot, we can actually see that there exists a correlation between the gross earnings and the Number of Facebook Likes! So this means that while producing a movie, we should definitely consider allocating some budget to marketing the movie on Facebook through the best possible way!</p>
 <p>Now let me take a look at a scatter plot between the budget of the film and its gross revenues at the box office. We want to see if we really do need to spend a lot of money out of our pockets while creating the film to ensure that it performs well at the box office!</p>
@@ -1918,7 +1922,7 @@ ggplot(data = movies, mapping = aes(x=gross/1000000, y=budget/1000000)) +
 #We will draw a line of best fit to better understand the trend
       geom_smooth() +
 #We will add titles
-      labs(title=&quot;Relationship between gross revenue and budget of a movie&quot;, x=&quot;Gross revenue(m USD)&quot;, y=&quot;Budget(m USD)&quot;) +
+      labs(title= &quot;Do movies with high budget make more money?&quot;, subtitle= &quot;Relationship between gross revenue and budget of a movie&quot;, x=&quot;Gross revenue(m USD)&quot;, y=&quot;Budget(m USD)&quot;) +
 #Choose theme minimal for plot syling
       theme_minimal()       </code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_budget_scatter-1.png" width="648" style="display: block; margin: auto;" /></p>
@@ -1932,7 +1936,8 @@ ggplot(data = movies, mapping = aes(x=rating, y=gross/1000000)) +
       #Adding a fitting line using the geom_smooth function
       geom_smooth() +
       #Add title for plot and axis
-      labs(title=&quot;Relationship between gross revenue and rating by genre&quot;, x=&quot;Rating&quot;, y=&quot;Gross revenue(m USD)&quot;) </code></pre>
+      labs(title= &quot;Does a high rating make a movie more profitable?&quot;, subtitle= &quot;Relationship between revenue and ratings per genre&quot;, x=&quot;Rating&quot;, y=&quot;Gross revenue(m USD)&quot;) +
+      theme_minimal()</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_on_rating-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>Action and Adventure movies with high IMDb ratings have gained better box office revenue so you might think ratings are a good predictor of the box office earnings. But this trend changes according to the genre, we see that for example gross revenue for Comedy, Crime and Drama genres are not sensitive to rating and follow a straight line. And finally, for Musical, Romance and Western movies we don’t have much data to make an inference. Therefore, IMDB ratings are not always an indicator of how much a movie will make.</p>
 <p>At the end, we are able to ascertain a few important points:</p>
