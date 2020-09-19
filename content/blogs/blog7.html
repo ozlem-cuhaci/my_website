@@ -13,9 +13,11 @@ title: Brexit
 
 
 
-<div id="brexit-plot" class="section level1">
-<h1>Brexit plot</h1>
-<p>We will use the Brexit results dataframe that we have used in the pre-programme assignement and produce the following plot.</p>
+<p>Image Source: <a href="https://www.britannica.com/story/uk-votes-on-brexit-from-eu">Britannica</a> © vchalup/Fotolia [Accessed 19 Sept. 2020]</p>
+<div id="how-political-affiliation-translated-to-brexit-voting" class="section level1">
+<h1>How political affiliation translated to Brexit voting</h1>
+<div id="general-election-2015-and-brexit-2016" class="section level2">
+<h2>General Election 2015 and Brexit 2016</h2>
 <p>As you all know Brexit is the withdrawal of the United Kingdom from the European Union. Following a UK-wide referendum in June 2016, 52% of British citizens voted in favour of leaving the EU and 48% voted to remain a member. One year ago in 2015, there was another election, general election of UK where Conservative, Labour, Liberal Democrats and UK Independence Party were the canditates. In my analysis, I wanted to investigate how political affiliation translated to Brexit voting.</p>
 <pre class="r"><code>#Let&#39;s read the dataframe 
 brexit_results &lt;- read_csv(here::here(&quot;data&quot;,&quot;brexit_results.csv&quot;))
@@ -41,4 +43,5 @@ theme_minimal() +
 #We place legend to the bottom, remove the legend title and draw border for the plot
 theme(legend.position=&quot;bottom&quot;, legend.title=element_blank(), panel.border = element_rect(colour = &quot;black&quot;, fill=NA)) </code></pre>
 <p><img src="/blogs/blog7_files/figure-html/load_brexit_data-1.png" width="864" style="display: block; margin: auto;" /></p>
+</div>
 </div>

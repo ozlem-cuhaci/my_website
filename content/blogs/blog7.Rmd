@@ -11,7 +11,6 @@ slug: blog7
 title: Brexit
 ---
 
-
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
@@ -28,7 +27,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ```{r load-libraries, echo=FALSE}
 library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
 library(mosaic)
@@ -43,11 +41,11 @@ library(tidyquant)
 library(infer)
 library(openintro)
 ```
+Image Source: [Britannica](https://www.britannica.com/story/uk-votes-on-brexit-from-eu) © vchalup/Fotolia [Accessed 19 Sept. 2020]
 
+# How political affiliation translated to Brexit voting
 
-# Brexit plot
-
-We will use the Brexit results dataframe that we have used in the pre-programme assignement and produce the following plot.
+## General Election 2015 and Brexit 2016
 
 As you all know Brexit is the withdrawal of the United Kingdom from the European Union. Following a UK-wide referendum in June 2016, 52% of British citizens voted in favour of leaving the EU and 48% voted to remain a member. One year ago in 2015, there was another election, general election of UK where Conservative, Labour, Liberal Democrats and UK Independence Party were the canditates. In my analysis, I wanted to investigate how political affiliation translated to Brexit voting.
 
@@ -79,3 +77,8 @@ theme(legend.position="bottom", legend.title=element_blank(), panel.border = ele
 
         
 ```
+
+
+
+
+

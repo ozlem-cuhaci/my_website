@@ -12,8 +12,6 @@ slug: blog6
 title: TfL Bike Rentals
 ---
 
-
-
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
   message = FALSE, 
@@ -46,6 +44,7 @@ library(infer)
 library(scales)
 library(kableExtra)
 ```
+Image Source: [Intelligenttransport](https://www.intelligenttransport.com/transport-news/94415/tfl-and-santander-record-87-million-bike-hires-since-2010-launch/) [Accessed 19 Sept. 2020]
 
 # How does the number of bike rentals change through the years?
 
@@ -114,6 +113,7 @@ theme(axis.title.x=element_blank())
 
 
 ```
+
 We can say that lockdown due to Covid-19 has significantly decreased the bike rentals in 2020.
 
 The second plot will look at percentage changes from the expected level of weekly rentals.

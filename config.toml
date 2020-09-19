@@ -109,11 +109,11 @@ disqusShortname = ""
       image = "brexit.jpg"
       url = "blogs/blog7"
 
-    [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+ #   [[params.tiles.showcase]]
+#      title = "NYC Mask Use"
+#      subtitle = "Nisl Sed Aliquam"
+ #     image = "pic04.jpg"
+#      url = "blogs/blog8"
 
   #  [[params.tiles.showcase]]
   #    title = "Consequat"

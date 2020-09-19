@@ -79,6 +79,7 @@
                             
 
 
+<p>Image Source: <a href="https://www.intelligenttransport.com/transport-news/94415/tfl-and-santander-record-87-million-bike-hires-since-2010-launch/">Intelligenttransport</a> [Accessed 19 Sept. 2020]</p>
 <div id="how-does-the-number-of-bike-rentals-change-through-the-years" class="section level1">
 <h1>How does the number of bike rentals change through the years?</h1>
 <div id="excess-rentals-in-tfl-bike-sharing" class="section level2">
@@ -137,8 +138,8 @@ geom_ribbon(aes(ymin= expected_rentals, ymax= pmin(actual_rentals, expected_rent
 theme_minimal() +
 #Hide x-axis title
 theme(axis.title.x=element_blank())</code></pre>
-<p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" />
-We can say that lockdown due to Covid-19 has significantly decreased the bike rentals in 2020.</p>
+<p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>We can say that lockdown due to Covid-19 has significantly decreased the bike rentals in 2020.</p>
 <p>The second plot will look at percentage changes from the expected level of weekly rentals.</p>
 <p>I calculated a variable excess rentals = actual rentals - expected rentals for each of the plots. For this calculation, I used the mean of bikes hired. Because we need to know the average number of bike rentals within a month/week between 2015 and 2020, and compare this with the average number of actual bike rentals within a particular month/week.</p>
 <pre class="r"><code>weekly_avg &lt;- bike %&gt;% 
