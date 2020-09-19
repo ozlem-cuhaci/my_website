@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="I am a Master&#39;s in Analytics and Management student at LBS">
+	<meta name="author" content="Ozlem Cuhaci ">
+	<meta name="generator" content="Hugo 0.74.3" />
+	<title>Brexit &middot; Portfolio website for Ozlem Cuhaci</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong> Ozlem Cuhaci</strong> <span>Portfolio website</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">Blogs</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">My projects</a></li>
+            
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Brexit</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/blogs/brexit.jpg" alt="" /></span>
+                            
+                            
+
+
+<div id="brexit-plot" class="section level1">
+<h1>Brexit plot</h1>
+<p>We will use the Brexit results dataframe that we have used in the pre-programme assignement and produce the following plot.</p>
+<p>As you all know Brexit is the withdrawal of the United Kingdom from the European Union. Following a UK-wide referendum in June 2016, 52% of British citizens voted in favour of leaving the EU and 48% voted to remain a member. One year ago in 2015, there was another election, general election of UK where Conservative, Labour, Liberal Democrats and UK Independence Party were the canditates. In my analysis, I wanted to investigate how political affiliation translated to Brexit voting.</p>
+<pre class="r"><code>#Let&#39;s read the dataframe 
+brexit_results &lt;- read_csv(here::here(&quot;data&quot;,&quot;brexit_results.csv&quot;))
+
+brexit_results %&gt;% 
+#We need to tidy data by gathering all the 2015 election results into party column
+pivot_longer(cols= ends_with(&quot;2015&quot;),
+                   names_to=&quot;party&quot;,
+                   values_to=&quot;party_votes&quot;) %&gt;% 
+
+#We group tidy data by party
+ggplot(aes(x= party_votes, y=leave_share, group=party, color=party))+ 
+#Make the points more transparent
+geom_point(alpha=0.3) +
+#Plot best fitted linear line
+geom_smooth(method = &quot;lm&quot;) +
+#We color each party according to its official color and change the legend names
+scale_color_manual(values=c(&quot;#0087dc&quot;, &quot;#d50000&quot;, &quot;#FDBB30&quot;, &quot;#EFE600&quot;), labels = c(&quot;Conservative&quot;, &quot;Labour&quot;, &quot;Lib Dems&quot;, &quot;UKIP&quot;)) +
+#Y-axis limits should be between 20 and 100
+ylim(20,100) + 
+labs(title=&quot;How political affiliation translated to Brexit Voting&quot;, x=&quot;Party % in the UK 2015 general election&quot;, y=&quot;Leave % in the 2016 Brexit referandum&quot;) + 
+theme_minimal() +
+#We place legend to the bottom, remove the legend title and draw border for the plot
+theme(legend.position=&quot;bottom&quot;, legend.title=element_blank(), panel.border = element_rect(colour = &quot;black&quot;, fill=NA)) </code></pre>
+<p><img src="/blogs/blog7_files/figure-html/load_brexit_data-1.png" width="864" style="display: block; margin: auto;" /></p>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+                <!-- Footer -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                
+                    <li><a href="https://www.github.com/ozlem-cuhaci" class="icon alt fa-github" target="_blank"><span class="label">GitHub</span></a></li>
+                
+                    <li><a href="https://www.linkedin.com/ozlem-cuhaci" class="icon alt fa-linkedin" target="_blank"><span class="label">LinkedIn</span></a></li>
+                
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Company Name</li>
+                
+                <li>Design:  <a href="https://www.html5up.net">HTML5 UP</a></li>
+                
+            </ul>
+        </div>
+    </footer>
+
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

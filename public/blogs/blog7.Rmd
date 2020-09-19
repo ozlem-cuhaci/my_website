@@ -1,0 +1,81 @@
+---
+categories:
+- ""
+- ""
+date: "2020-09-19"
+description: Brexit
+draft: false
+image: brexit.jpg
+keywords: ""
+slug: blog7
+title: Brexit
+---
+
+
+```{r, setup, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+```
+
+
+# Brexit plot
+
+We will use the Brexit results dataframe that we have used in the pre-programme assignement and produce the following plot.
+
+As you all know Brexit is the withdrawal of the United Kingdom from the European Union. Following a UK-wide referendum in June 2016, 52% of British citizens voted in favour of leaving the EU and 48% voted to remain a member. One year ago in 2015, there was another election, general election of UK where Conservative, Labour, Liberal Democrats and UK Independence Party were the canditates. In my analysis, I wanted to investigate how political affiliation translated to Brexit voting.
+
+```{r load_brexit_data, warning=FALSE, message=FALSE, fig.width=9, fig.height=6}
+
+#Let's read the dataframe 
+brexit_results <- read_csv(here::here("data","brexit_results.csv"))
+
+brexit_results %>% 
+#We need to tidy data by gathering all the 2015 election results into party column
+pivot_longer(cols= ends_with("2015"),
+                   names_to="party",
+                   values_to="party_votes") %>% 
+
+#We group tidy data by party
+ggplot(aes(x= party_votes, y=leave_share, group=party, color=party))+ 
+#Make the points more transparent
+geom_point(alpha=0.3) +
+#Plot best fitted linear line
+geom_smooth(method = "lm") +
+#We color each party according to its official color and change the legend names
+scale_color_manual(values=c("#0087dc", "#d50000", "#FDBB30", "#EFE600"), labels = c("Conservative", "Labour", "Lib Dems", "UKIP")) +
+#Y-axis limits should be between 20 and 100
+ylim(20,100) + 
+labs(title="How political affiliation translated to Brexit Voting", x="Party % in the UK 2015 general election", y="Leave % in the 2016 Brexit referandum") + 
+theme_minimal() +
+#We place legend to the bottom, remove the legend title and draw border for the plot
+theme(legend.position="bottom", legend.title=element_blank(), panel.border = element_rect(colour = "black", fill=NA)) 
+
+        
+```

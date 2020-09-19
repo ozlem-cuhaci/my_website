@@ -1,0 +1,44 @@
+---
+categories:
+- ""
+- ""
+date: "2020-09-19"
+description: Brexit
+draft: false
+image: brexit.jpg
+keywords: ""
+slug: blog7
+title: Brexit
+---
+
+
+
+<div id="brexit-plot" class="section level1">
+<h1>Brexit plot</h1>
+<p>We will use the Brexit results dataframe that we have used in the pre-programme assignement and produce the following plot.</p>
+<p>As you all know Brexit is the withdrawal of the United Kingdom from the European Union. Following a UK-wide referendum in June 2016, 52% of British citizens voted in favour of leaving the EU and 48% voted to remain a member. One year ago in 2015, there was another election, general election of UK where Conservative, Labour, Liberal Democrats and UK Independence Party were the canditates. In my analysis, I wanted to investigate how political affiliation translated to Brexit voting.</p>
+<pre class="r"><code>#Let&#39;s read the dataframe 
+brexit_results &lt;- read_csv(here::here(&quot;data&quot;,&quot;brexit_results.csv&quot;))
+
+brexit_results %&gt;% 
+#We need to tidy data by gathering all the 2015 election results into party column
+pivot_longer(cols= ends_with(&quot;2015&quot;),
+                   names_to=&quot;party&quot;,
+                   values_to=&quot;party_votes&quot;) %&gt;% 
+
+#We group tidy data by party
+ggplot(aes(x= party_votes, y=leave_share, group=party, color=party))+ 
+#Make the points more transparent
+geom_point(alpha=0.3) +
+#Plot best fitted linear line
+geom_smooth(method = &quot;lm&quot;) +
+#We color each party according to its official color and change the legend names
+scale_color_manual(values=c(&quot;#0087dc&quot;, &quot;#d50000&quot;, &quot;#FDBB30&quot;, &quot;#EFE600&quot;), labels = c(&quot;Conservative&quot;, &quot;Labour&quot;, &quot;Lib Dems&quot;, &quot;UKIP&quot;)) +
+#Y-axis limits should be between 20 and 100
+ylim(20,100) + 
+labs(title=&quot;How political affiliation translated to Brexit Voting&quot;, x=&quot;Party % in the UK 2015 general election&quot;, y=&quot;Leave % in the 2016 Brexit referandum&quot;) + 
+theme_minimal() +
+#We place legend to the bottom, remove the legend title and draw border for the plot
+theme(legend.position=&quot;bottom&quot;, legend.title=element_blank(), panel.border = element_rect(colour = &quot;black&quot;, fill=NA)) </code></pre>
+<p><img src="/blogs/blog7_files/figure-html/load_brexit_data-1.png" width="864" style="display: block; margin: auto;" /></p>
+</div>

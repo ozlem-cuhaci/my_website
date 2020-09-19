@@ -98,14 +98,14 @@ disqusShortname = ""
       url = "blogs/blog5"
 
     [[params.tiles.showcase]]
-      title = "bike sharing"
-      subtitle = "Feugiat Amet Tempus"
+      title = "Transport for London Bike Sharing"
+      subtitle = "How does the number of bike rentals change through the years?"
       image = "bikes.jpg"
       url = "blogs/blog6"
 
     [[params.tiles.showcase]]
-      title = "brexit"
-      subtitle = "Lorem Etiam Nullam"
+      title = "Brexit"
+      subtitle = "How political affiliation translated to Brexit voting"
       image = "brexit.jpg"
       url = "blogs/blog7"
 
