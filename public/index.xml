@@ -37,9 +37,7 @@ url &amp;lt;- &amp;quot;https://data.london.gov.uk/download/number-bicycle-hires
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
       <guid>/blogs/blog5/</guid>
-      <description>Analysis of movies in the IMDB dataset In order to know about all the possible popular and good movies, we thankfully have IMDB, therefore, we will be using the IMDB 5000 dataset to perform our analysis.
-Whenever approaching a problem statement, we need to make sure to use the IICE 4 step plan.
-# We will load our datasets using read_csv function and use glimpse to take a look at the dataset.</description>
+      <description>Can we estimate a movie’s box office earnings? Analysis of movies in the IMDB dataset IMDb (also known as the Internet Movie Database) is an online database, owned by Amazon, of information related to films, television programs, home videos, video games, and streaming content online – including cast, production crew and personal biographies, plot summaries, trivia, ratings, and fan and critical reviews. IMDb has approximately 6.5 million titles (including episodes) and 10.</description>
     </item>
     
     <item>

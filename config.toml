@@ -93,7 +93,7 @@ disqusShortname = ""
     
     [[params.tiles.showcase]]
       title = "IMdB Analysis"
-      subtitle = "Director and IMdB?"
+      subtitle = "Can we estimate a movie's box office earnings?"
       image = "imdb.jpg"
       url = "blogs/blog5"
 
