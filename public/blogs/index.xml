@@ -12,6 +12,37 @@
     
     
     <item>
+      <title>bike sharing</title>
+      <link>/blogs/blog6/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog6/</guid>
+      <description>Challenge 2: Excess rentals in TfL bike sharing We have seen the TfL data on how many bikes were hired every single day in class. It is time to analyze it. We can get the latest data by running the following
+url &amp;lt;- &amp;quot;https://data.london.gov.uk/download/number-bicycle-hires/ac29363e-e0cb-47cc-a97a-e216d900a6b0/tfl-daily-cycle-hires.xlsx&amp;quot; # Download TFL data to temporary file httr::GET(url, write_disk(bike.temp &amp;lt;- tempfile(fileext = &amp;quot;.xlsx&amp;quot;))) ## Response [https://airdrive-secure.s3-eu-west-1.amazonaws.com/london/dataset/number-bicycle-hires/2020-09-18T09%3A06%3A54/tfl-daily-cycle-hires.xlsx?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;amp;X-Amz-Credential=AKIAJJDIMAIVZJDICKHA%2F20200919%2Feu-west-1%2Fs3%2Faws4_request&amp;amp;X-Amz-Date=20200919T130224Z&amp;amp;X-Amz-Expires=300&amp;amp;X-Amz-Signature=ccd47396647e06b7434a3d6ba402f95ae892f5d9a35cbd56f71dfea90d56723b&amp;amp;X-Amz-SignedHeaders=host] ## Date: 2020-09-19 13:02 ## Status: 200 ## Content-Type: application/vnd.</description>
+    </item>
+    
+    <item>
+      <title>Brexit</title>
+      <link>/blogs/blog7/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog7/</guid>
+      <description>Challenge 1: Brexit plot We will use the Brexit results dataframe that we have used in the pre-programme assignement and produce the following plot.
+#Chunk description above defines the width and height of the plot that we create #Let&amp;#39;s read the dataframe brexit_results &amp;lt;- read_csv(here::here(&amp;quot;data&amp;quot;,&amp;quot;brexit_results.csv&amp;quot;)) brexit_results %&amp;gt;% #We need to tidy data by gathering all the 2015 election results into party column pivot_longer(cols= ends_with(&amp;quot;2015&amp;quot;), names_to=&amp;quot;party&amp;quot;, values_to=&amp;quot;party_votes&amp;quot;) %&amp;gt;% #We group tidy data by party ggplot(aes(x= party_votes, y=leave_share, group=party, color=party))+ #Make the points more transparent geom_point(alpha=0.</description>
+    </item>
+    
+    <item>
+      <title>IMdB Analysis</title>
+      <link>/blogs/blog5/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blogs/blog5/</guid>
+      <description>Analysis of movies in the IMDB dataset In order to know about all the possible popular and good movies, we thankfully have IMDB, therefore, we will be using the IMDB 5000 dataset to perform our analysis.
+Whenever approaching a problem statement, we need to make sure to use the IICE 4 step plan.
+# We will load our datasets using read_csv function and use glimpse to take a look at the dataset.</description>
+    </item>
+    
+    <item>
       <title>Aliquam</title>
       <link>/blogs/aliquam/</link>
       <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>

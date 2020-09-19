@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = " Ozlem Cuhaci"
-   # subtitle = "Portfolio website"
+    subtitle = "Portfolio website"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -71,7 +71,7 @@ disqusShortname = ""
       name = "My projects"
       url = "blogs"
 
- #   # Button Style 2
+    # Button Style 2
   #  [[params.navigation.button2]]
   #    name = "Log In"
   #    url = "#"
@@ -81,10 +81,10 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Ozlem"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
-    buttonText = "Get Started"
-
+    title = "Hi, my name is Ozlem!"
+    subtitle = "DISCOVER MY PORTFOLIO AS AN ANALYTICS AND MANAGEMENT MASTER'S STUDENT AT LBS"
+    buttonText = "Start Here"
+    image = "banner.jpeg"
 
   # Tiles Section
   [params.tiles]
@@ -92,40 +92,40 @@ disqusShortname = ""
     # Display your showcases here.
     
     [[params.tiles.showcase]]
-      title = "NYT Masks"
-      subtitle = "How does mask use acceptance vary in the US?"
-      image = "pic01.jpg"
+      title = "IMdB Analysis"
+      subtitle = "Director and IMdB?"
+      image = "imdb.jpg"
       url = "blogs/blog5"
 
     [[params.tiles.showcase]]
-      title = "Tempus"
+      title = "bike sharing"
       subtitle = "Feugiat Amet Tempus"
-      image = "pic02.jpg"
-      url = "blogs/tempus"
+      image = "bikes.jpg"
+      url = "blogs/blog6"
 
     [[params.tiles.showcase]]
-      title = "Magna"
+      title = "brexit"
       subtitle = "Lorem Etiam Nullam"
-      image = "pic03.jpg"
-      url = "blogs/magna"
+      image = "brexit.jpg"
+      url = "blogs/blog7"
 
-    [[params.tiles.showcase]]
-      title = "Ipsum"
-      subtitle = "Nisl Sed Aliquam"
-      image = "pic04.jpg"
-      url = "blogs/ipsum"
+  #  [[params.tiles.showcase]]
+  #    title = "Ipsum"
+  #    subtitle = "Nisl Sed Aliquam"
+  #    image = "pic04.jpg"
+  #    url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Consequat"
-      subtitle = "Ipsum Dolor Sit Amet"
-      image = "pic05.jpg"
-      url = "blogs/ipsum"
+  #  [[params.tiles.showcase]]
+  #    title = "Consequat"
+  #    subtitle = "Ipsum Dolor Sit Amet"
+  #    image = "pic05.jpg"
+  #    url = "blogs/ipsum"
 
-    [[params.tiles.showcase]]
-      title = "Etiam"
-      subtitle = "Feugiat Amet Tempus"
-      image = "pic06.jpg"
-      url = "blogs/ipsum"
+  #  [[params.tiles.showcase]]
+  #    title = "Etiam"
+  #    subtitle = "Feugiat Amet Tempus"
+  #    image = "pic06.jpg"
+  #    url = "blogs/ipsum"
     # You can make more showcases by copy and pasting the code above
 
   [params.blog]
@@ -138,13 +138,12 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Massa libero"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
+    title = "About Me"
+    subtitle = """Hi! I'm a Master's in Analytics and Management student at London Business School.
+    Coming from an engineering background I have previous experience with some programming languages
+    but I'm new to R and trying to learn how to make impactful analysis using RStudio. Feel free to 
+    scroll up to take a look at my projects."""
+    buttonText = "Start Here"
     url = "blogs"
 
 
@@ -174,9 +173,9 @@ disqusShortname = ""
     title = "Email"
     email = "ocuhaci.mam2021@london.edu"
 
-    [[params.contact.phone]]
-    title = "Phone"
-    phone = "+90 5395597019"
+  #  [[params.contact.phone]]
+  #  title = "Phone"
+  #  phone = "+44 7833466112"
 
     [[params.contact.address]]
     title = "Address"
@@ -190,29 +189,29 @@ disqusShortname = ""
     copyright = "Company Name"
 
     # Uses font awesome icons
-    [[params.footer.social]]
-      icon = "fa-twitter"
-      url= "https://www.twitter.com"
-      label = "Twitter"
+   # [[params.footer.social]]
+    #  icon = "fa-twitter"
+  #    url= "https://www.twitter.com"
+   #   label = "Twitter"
 
-    [[params.footer.social]]
-      icon = "fa-facebook"
-      url= "https://www.facebook.com"
-      label = "Facebook"
+ #   [[params.footer.social]]
+#      icon = "fa-facebook"
+ #     url= "https://www.facebook.com"
+  #    label = "Facebook"
 
-    [[params.footer.social]]
-      icon = "fa-instagram"
-      url= "https://www.instagram.com"
-      label = "Instagram"
+  #  [[params.footer.social]]
+  #    icon = "fa-instagram"
+  #    url= "https://www.instagram.com"
+  #    label = "Instagram"
     
     [[params.footer.social]]
       icon = "fa-github"
-      url= "https://www.github.com"
+      url= "https://www.github.com/ozlem-cuhaci"
       label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "https://www.linkedin.com"
+      url= "https://www.linkedin.com/ozlem-cuhaci"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
