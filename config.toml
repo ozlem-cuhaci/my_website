@@ -211,7 +211,7 @@ disqusShortname = ""
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "www.linkedin.com/in/ozlem-cuhaci"
+      url= "https://www.linkedin.com/in/ozlem-cuhaci"
       label = "LinkedIn"
 
     [[params.footer.quicklinks]]
