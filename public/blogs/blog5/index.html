@@ -105,7 +105,7 @@ glimpse(movies)</code></pre>
 ## $ reviews             &lt;dbl&gt; 3777, 2843, 1934, 2425, 5312, 3917, 1752, 1752, 3…
 ## $ rating              &lt;dbl&gt; 7.9, 7.7, 7.0, 8.1, 9.0, 6.5, 8.7, 7.5, 8.5, 7.2,…</code></pre>
 <p>Now let’s see what we can actually learn from this dataframe!</p>
-<p>Before everything else, I perform data cleaning and data wrangling to ensure that I’m using the most optimized subset of the dataset to structure my hypothesis.</p>
+<p>Before everything else, I perform data cleaning and data wrangling to ensure that I’m using the most optimized subset of the dataset.</p>
 <pre class="r"><code>#Skim function provides a broad overview of the dataframe for us whereas duplicated shows us if there are any duplicated values in the dataframe.
 skim(movies)</code></pre>
 <table style='width: auto;'
@@ -629,7 +629,7 @@ rating
 <pre class="r"><code>sum(duplicated(movies))</code></pre>
 <pre><code>## [1] 0</code></pre>
 <p>You can see that there are no missing values in any of the attributes. If there were any duplicate entries then they would be marked true in <code>duplicate(movies)</code>. The sum <code>sum(duplicated(movies))</code> gives us 0. And as we know that true means 1, we do not have any duplicate entries.</p>
-<p>But wait a minute!!! There is something fishy definitely going on here behind the scenes. You can see that there are 2,961 records in this dataframe but there are only 2907 unique titles?! We now need to check whether there is actually some fishy title business or not.</p>
+<p>But wait a minute! There is something strange here! You can see that there are 2,961 records in this dataframe but there are only 2907 unique titles. We now need to check whether there is actually something strange or not.</p>
 <pre class="r"><code>#We will look at only the movie titles now whether they have duplicates or not.
 sum(duplicated(movies$title))</code></pre>
 <pre><code>## [1] 54</code></pre>
@@ -865,8 +865,8 @@ Tobe Hooper
 </tbody>
 </table>
 <p>You can see that there are 54 movies having the same title. The skim function also said that there are 2907 unique titles and 2961 total movies in the list. So we have 54 again. When we filtered the duplicate movie titles, we saw the top 5 of them that appear twice in our dataframe.</p>
-<p>Now let me actually remove all of these duplicates! The duplicates differed in either the number of reviews or the number of votes and therefore could not be spotted if looking at only whether there exist duplicates or not in the dataframe.</p>
-<p>Now that we have done the initial data cleaning process and 70% of our jobs as Data Scientists, let me take a look at all the movies present in this database and try to understand how many movies are contained for each genre. So, I will construct a table with the count of movies by genre, ranked in descending order. Now that our data is clean, I need to start our exploration process (as elaborately put by the IICE methodology).</p>
+<p>Now let me actually remove all of these duplicates. The duplicates differed in either the number of reviews or the number of votes and therefore could not be spotted if looking at only whether there exist duplicates or not in the dataframe.</p>
+<p>Now that we have done the initial data cleaning process, let me take a look at all the movies present in this database and try to understand how many movies are contained for each genre. So, I will construct a table with the count of movies by genre, ranked in descending order. Now that our data is clean, I need to start our exploration process.</p>
 <pre class="r"><code># This gives us a table which shows that Comedy, Action and Drama genres have the most number of movies in the database.
 
 movies %&gt;% 
@@ -1032,9 +1032,9 @@ Thriller
 </tbody>
 </table>
 <p>We can see that this database actually contains a majority of Comedy, Action, Drama, Adventure, Crime, Biography, and Horror movies.</p>
-<p>In the IMDB Dataset, there exist some genres that have lesser than 10 observations in them. Most of my analysis in this segment is centered on finding the correlations between genres and several different attributes such as average ratings, gross budget, return on investment etc. Most of these genre classes contain more than 10 values but there are 6 classes which contain less than 10 values.</p>
+<p>In the IMDB Dataset, there exist some genres that have less than 10 observations in them. Most of my analysis in this segment is centered on finding the correlations between genres and several different attributes such as average ratings, gross budget, return on investment etc. Most of these genre classes contain more than 10 values but there are 6 classes which contain less than 10 values.</p>
 <p>Now, I will look at the average gross earnings and budget by genre plot. Using this, I will also calculate the return on budget that a movie made at the box office for each dollar.
-This is going to be really interesting because this will allow me to see if there is indeed a direct correlation between a movie’s budget and its return!</p>
+This is going to be really interesting because this will allow me to see if there is a direct correlation between a movie’s budget and its return!</p>
 <pre class="r"><code>movies %&gt;% 
   #We will group movies by genre
   group_by(genre) %&gt;% 
@@ -1310,8 +1310,8 @@ Thriller
 </tr>
 </tbody>
 </table>
-<p>At first glance at this plot, I thought about entering into the Musical industry! The average return on investment is nearly 27 times the initial budget which is insane! However, I remembered that there are only two Musical movies in this database unfortunately, so it’s too little to predict an accurate return on our investment since I clearly don’t have enough data.</p>
-<p>Now, let’s produce a table that shows the top 15 directors who have created the highest gross revenue in the box office. I will also show the mean, median and standard deviation per director. The box office is one of those places where the amount of money earned is directly dependent upon the people reached. So, now, I will try to analyse the list of directors who have touched the maximum number of lives through their movies!</p>
+<p>At first glance at this plot, I thought about entering into the Musical industry! The average return on investment is nearly 27 times the initial budget! However, remember that there are only two Musical movies in this database, so it’s not enough to predict an accurate return on our investment since I don’t have enough data.</p>
+<p>Now, let’s produce a table that shows the top 15 directors who have created the highest gross revenue in the box office. I will also show the mean, median and standard deviation per director.</p>
 <pre class="r"><code>movies %&gt;% 
   #We group movies by director
   group_by(director) %&gt;% 
@@ -1609,8 +1609,8 @@ Ridley Scott
 </tr>
 </tbody>
 </table>
-<p>Okay so the data I’m dealing with is definitely accurate since these 15 directors are absolute geniuses.</p>
-<p>Now, I come to the part to learn what the audience think about these movies. We will produce a table that describes how ratings are distributed by genre. I know that money is definitely one way an audience shows love to the movie, but a movie can actually perform incredibly at the box office even if it isn’t a great movie - it all depends upon how good the marketing geniuses behind the film’s promotion are good at their jobs. In today’s day and age, there exist very few people who watch a movie without checking for its review in IMDB, so now let’s see how the ratings of movies are distributed by their genre. After all, we still do want to confirm which movies to make as making a movie that earns money but doesn’t get us the people’s love isn’t really fun, is it?</p>
+<p>It is not surprising to see Steven Spielberg at the top of my table.</p>
+<p>Now, I come to the part to learn what the audience think about these movies. I will produce a table that describes how ratings are distributed by genre.</p>
 <pre class="r"><code>movies %&gt;% 
   #Group movies by genre
   group_by(genre) %&gt;% 
@@ -1940,7 +1940,7 @@ NA
 </tr>
 </tbody>
 </table>
-<p>Now, we can see that the audience is particularly fond of watching biographies, crime, mystery, and drama movies.</p>
+<p>Now, we can see that the audience liked particularly watching biographies, crime, mystery, and drama movies.</p>
 <pre class="r"><code>  #Plot a histogram using movies dataframe, x axis shows rating
  dist_movies &lt;-  ggplot(data = movies, mapping = aes(x = rating) ) +
   #Choose white for color of bin lines
@@ -1963,7 +1963,7 @@ ggplot(data = movies, mapping = aes(x=cast_facebook_likes/1000, y=gross/1000000)
       #We will choose theme minimal for the plot styling.
       theme_minimal()   </code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_on_ggplot-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>This graph depicts that there doesn’t exist any significant correlation between the Number of Facebook Likes and Gross Earnings. But we aren’t 100% sure if this is actually the case at this point, let us try to rearrange our graph to see if this actually holds true!</p>
+<p>This graph depicts that there doesn’t exist any significant correlation between the Number of Facebook Likes and Gross Earnings. But I can’t be sure if this is actually the case, let me try to rearrange our graph by using logarithmic scale.</p>
 <pre class="r"><code># We will create another version of this scatter plot
 ggplot(data = movies, aes(x=cast_facebook_likes/1000, y=gross/1000000)) + 
   # We will set the opacity of the points to 0.2
@@ -1980,8 +1980,8 @@ ggplot(data = movies, aes(x=cast_facebook_likes/1000, y=gross/1000000)) +
        y = &quot;Gross earning(m USD)&quot;) +
   theme_minimal()</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_on_ggplot2-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>From this plot, we can actually see that there exists a correlation between the gross earnings and the Number of Facebook Likes! So this means that while producing a movie, we should definitely consider allocating some budget to marketing the movie on Facebook through the best possible way!</p>
-<p>Now let me take a look at a scatter plot between the budget of the film and its gross revenues at the box office. We want to see if we really do need to spend a lot of money out of our pockets while creating the film to ensure that it performs well at the box office!</p>
+<p>From this plot, we can actually see that there exists a correlation between the gross earnings and the Number of Facebook Likes! So this means that while producing a movie, we should definitely consider using Facebook extensively, try to choose cast with huge fan base and allocate some budget to marketing!</p>
+<p>Now let me take a look at a scatter plot between the budget of the film and its gross revenues at the box office. I want to see if I really need to spend a lot of money to make my movie achieve success in the box office.</p>
 <pre class="r"><code>#We will plot a scatterplot with movies data, we will map the gross earnings on the x axis and budget on the y axis, both are in millions
 ggplot(data = movies, mapping = aes(x=gross/1000000, y=budget/1000000)) +
       geom_point() + 
@@ -1992,7 +1992,7 @@ ggplot(data = movies, mapping = aes(x=gross/1000000, y=budget/1000000)) +
 #Choose theme minimal for plot syling
       theme_minimal()       </code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_budget_scatter-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>There exists a clear correlation between budget and gross that can be modeled by the polynomial plot, therefore it is likely that budget is a good predictor of how much money a movie will make at the box office. This means that while making our own movies, we will need to guarantee that we have at least a respectable few millions to make the movie.</p>
+<p>There exists a clear correlation between budget and gross, therefore it is likely that budget is a good predictor of how much money a movie will make at the box office. This means that while making our own movies, we should be willing to spend at least a few millions.</p>
 <p>Next, I will take a look at the scatterplot faceted by genre to see whether IMDB ratings are likely to be a good predictor of how much money a movie will make at the box office. Let’s see if there is anything strange in this dataset.</p>
 <pre class="r"><code>#We will produce a scatterplot with movies data, we will map IMDb ratings on the x axis and gross earnings in millions on the y axis.
 ggplot(data = movies, mapping = aes(x=rating, y=gross/1000000)) +
@@ -2006,11 +2006,11 @@ ggplot(data = movies, mapping = aes(x=rating, y=gross/1000000)) +
       theme_minimal()</code></pre>
 <p><img src="/blogs/blog5_files/figure-html/gross_on_rating-1.png" width="648" style="display: block; margin: auto;" /></p>
 <p>Action and Adventure movies with high IMDb ratings have gained better box office revenue so you might think ratings are a good predictor of the box office earnings. But this trend changes according to the genre, we see that for example gross revenue for Comedy, Crime and Drama genres are not sensitive to rating and follow a straight line. And finally, for Musical, Romance and Western movies we don’t have much data to make an inference. Therefore, IMDB ratings are not always an indicator of how much a movie will make.</p>
-<p>At the end, we are able to ascertain a few important points:</p>
+<p>I can conclude the following:</p>
 <ul>
-<li>There exists a positive correlation between the Gross Earnings of a movie and the number of Facebook likes obtained; this means that it is a good idea to market the movie on Facebook extensively pre-release.</li>
-<li>There exists a positive correlation between a film’s budget to its gross earnings at the post office; so while looking at producing a movie, it is generally a good idea to put in some money.</li>
-<li>The top 15 Directors are (undoubtably) Steven Spielberg, Michael Bay, James Cameron, Christopher Nolan, George Lucas, Robert Zemeckis, Tim Burton, Sam Raimi, Clint Eastwood, Francis Lawrence, Ron Howard, Gore Verbinski, Andrew Adamson, Shawn Levy, and Ridley Scott.</li>
+<li>There exists a positive correlation between the gross earnings of a movie and the number of Facebook likes obtained. This means that you can get a better box office success if you market your movie on Facebook extensively.</li>
+<li>There exists a positive correlation between a film’s budget to its gross earnings at the box office. This means that if you produce a movie with a big budget, you can actually attract more people to watch your movie.</li>
+<li>The top 15 Directors are Steven Spielberg, Michael Bay, James Cameron, Christopher Nolan, George Lucas, Robert Zemeckis, Tim Burton, Sam Raimi, Clint Eastwood, Francis Lawrence, Ron Howard, Gore Verbinski, Andrew Adamson, Shawn Levy, and Ridley Scott.</li>
 </ul>
 <p><strong>References</strong></p>
 <p>[1] <a href="https://en.wikipedia.org/wiki/IMDb" class="uri">https://en.wikipedia.org/wiki/IMDb</a> [Accessed 19 Sept. 2020]</p>
