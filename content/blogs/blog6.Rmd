@@ -114,7 +114,7 @@ theme(axis.title.x=element_blank())
 
 ```
 
-We can say that lockdown due to Covid-19 has significantly decreased the bike rentals in 2020.
+So the outcome is not surprising that the average bike rentals keeps increasing during the first 6 months of the year thanks to the good weather conditions and keeps decreasing during the last 6 months of the year due to the unfavorable weather conditions. Monthly averages in 2015 stays below the overall averages. There should be a specific reason for the ups and downs from the average in the next 4 years. We know the obvious reason in the decline of the bike rentals between February and May 2020. Lockdown due to Covid-19 has significantly decreased the bike rentals in the first months but the sharp return in the summer months is promising.
 
 The second plot will look at percentage changes from the expected level of weekly rentals.
 
@@ -166,4 +166,8 @@ theme(axis.title.y=element_blank())
 
 
 ```
+
+We can say that weekly changes in the bike rentals don't really follow a similar pattern in any years. During the first quarter in 2015, 2016 and 2018, weekly changes in bike rentals were almost always below the average whereas in 2017 and 2019 there are interesting peaks. Weather conditions and events like transportation strike can make a huge difference in weekly number of bike rentals.
+
+
 

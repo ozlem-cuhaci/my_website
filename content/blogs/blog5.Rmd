@@ -49,7 +49,7 @@ library(tidytext)
 ```
 Image Source: [Amazon.jobs](https://www.amazon.jobs/en/teams/imdb?ref_=ft_jb) [Accessed 19 Sept. 2020]
 
-# Can we estimate a movie's box office earnings?
+# What affects a movie's box office success?
 
 ## Analysis of movies in the IMDB dataset
 

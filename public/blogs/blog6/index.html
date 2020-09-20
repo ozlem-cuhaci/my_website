@@ -139,7 +139,7 @@ theme_minimal() +
 #Hide x-axis title
 theme(axis.title.x=element_blank())</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-1-1.png" width="960" style="display: block; margin: auto;" /></p>
-<p>We can say that lockdown due to Covid-19 has significantly decreased the bike rentals in 2020.</p>
+<p>So the outcome is not surprising that the average bike rentals keeps increasing during the first 6 months of the year thanks to the good weather conditions and keeps decreasing during the last 6 months of the year due to the unfavorable weather conditions. Monthly averages in 2015 stays below the overall averages. There should be a specific reason for the ups and downs from the average in the next 4 years. We know the obvious reason in the decline of the bike rentals between February and May 2020. Lockdown due to Covid-19 has significantly decreased the bike rentals in the first months but the sharp return in the summer months is promising.</p>
 <p>The second plot will look at percentage changes from the expected level of weekly rentals.</p>
 <p>I calculated a variable excess rentals = actual rentals - expected rentals for each of the plots. For this calculation, I used the mean of bikes hired. Because we need to know the average number of bike rentals within a month/week between 2015 and 2020, and compare this with the average number of actual bike rentals within a particular month/week.</p>
 <pre class="r"><code>weekly_avg &lt;- bike %&gt;% 
@@ -181,6 +181,7 @@ theme_minimal() +
 #Hide y-axis title
 theme(axis.title.y=element_blank())</code></pre>
 <p><img src="/blogs/blog6_files/figure-html/unnamed-chunk-2-1.png" width="960" style="display: block; margin: auto;" /></p>
+<p>We can say that weekly changes in the bike rentals don’t really follow a similar pattern in any years. During the first quarter in 2015, 2016 and 2018, weekly changes in bike rentals were almost always below the average whereas in 2017 and 2019 there are interesting peaks. Weather conditions and events like transportation strike can make a huge difference in weekly number of bike rentals.</p>
 </div>
 </div>
 
